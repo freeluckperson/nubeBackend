@@ -17,6 +17,6 @@ router.post('/products', createProducts)
 
 router.put('/products/:id', updateProducts)
 
-router.delete('/products/:id', deleteProducts)
+router.delete('/products/:id', deleteProducts);
 
-export default router
+export default router;
