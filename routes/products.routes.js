@@ -2,7 +2,7 @@ import { Router } from 'express'
 import {
   getProducts,
   findProduct,
-  createProducts, 
+  createProducts,
   updateProducts,
   deleteProducts
 } from '../controllers/products.controller.js'
