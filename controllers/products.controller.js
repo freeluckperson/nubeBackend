@@ -25,14 +25,13 @@ export const createProducts = async (req, res) => {
 }
 
 export const updateProducts = async (req, res) => {
-  const { id } = req.params;
-  const { name, description, price } = req.body;
-
+  const { id } = req.params
+  
   try {
-    const product = await Product.findByIdAndUpdate(id, { name, description, price }, { new: true });
+    const product = await Product.findByIdAndUpdate(id, req.body, {new:true})
     res.json(product);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to update product' });
+    res.status(500).json({ error: 'Failed to update product' })
   }
 }
 
@@ -52,6 +51,6 @@ export const findProduct = async (req, res) => {
     const product = await Product.findById(id)
     res.status(200).json(product)
   } catch (error) {
-    res.status(500).json({error:'could not be delete'})
+    res.status(500).json({error:'could not be find'})
   }
 }

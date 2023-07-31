@@ -15,7 +15,7 @@ router.get('/products/:id', findProduct)
 
 router.post('/products', createProducts)
 
-router.put('/products', updateProducts)
+router.put('/products/:id', updateProducts)
 
 router.delete('/products/:id', deleteProducts)
 
