@@ -3,7 +3,7 @@ import morgan from 'morgan'
 import cors from 'cors'
 import fileUpload from 'express-fileupload'
 import productsRoutes from './routes/products.routes.js'
-import indexRoutes from './routes/index.routes.js'
+// import indexRoutes from './routes/index.routes.js'
 
 const app = express()
 
@@ -16,6 +16,6 @@ app.use(fileUpload({
 }))
 
 app.use(productsRoutes)
-app.use(indexRoutes)
+// app.use(indexRoutes)
 
 export default app

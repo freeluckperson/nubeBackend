@@ -15,10 +15,24 @@ const productSchema = mongoose.Schema({
     type: Number,
     default: 0
   },
+  stock: {
+    type: Number,
+    default: 0,
+    validate: {
+      validator: Number.isInteger,
+      message: 'must be interger number'
+    }
+  },
   imag: {
-    public_id: String,
-    secure_url: String
-  }
+    public_id: {
+      type: String,
+      default: 'default_public_id'
+    },
+    secure_url: {
+      type: String,
+      default: 'https://product-images.tcgplayer.com/fit-in/420x420/455949.jpg'
+    }
+  },
 }, {
   timestamps: true
 })

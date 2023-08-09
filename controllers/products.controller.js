@@ -13,9 +13,10 @@ export const getProducts = async (_, res) => {
 
 export const createProducts = async (req, res) => {
   try {
-    const { name, description, price } = req.body
+    const { stock, name, description, price  } = req.body
 
     const product = new Product({
+      stock,
       name,
       description,
       price
@@ -53,12 +54,12 @@ export const deleteProducts = async (req, res) => {
   const { id } = req.params
   try {
     const product = await Product.findByIdAndDelete(id)
-    
+
     if (!product) return res.status(404).json({ message: 'not exist' })
-        await deleteImag(product.imag.public_id)
-    
-        res.status(200).json(product)
-    
+    await deleteImag(product.imag.public_id)
+
+    res.status(200).json(product)
+
   } catch (error) {
     res.status(500).json({ message: error.message })
   }
@@ -68,7 +69,7 @@ export const findProduct = async (req, res) => {
   const { id } = req.params
   try {
     const product = await Product.findById(id)
-    if (!product) return res.status(404).json({message: 'id no exist'})
+    if (!product) return res.status(404).json({ message: 'id no exist' })
     res.status(200).json(product)
   } catch (error) {
     res.status(500).json({ message: error.message })
